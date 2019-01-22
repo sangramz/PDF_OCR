@@ -1,0 +1,76 @@
+{% extends 'generic.html' %}
+{% load static %}
+
+ {% block content %}
+
+
+<div class="row">
+    <div class="col-sm-8">
+        <object data="http://127.0.0.1:8000/static/app_main/web/viewer.html?file=http://127.0.0.1:8000/static/app_main/document1.pdf" style="width:100%; height:650px;" frameborder="0"></object>
+    </div>
+
+    <div class="col-sm-4">
+    
+    <input type="text" class="form-control" id="findInput2" placeholder="search"></p>
+    <section class="card card-blue-fill">
+            <div class="card-block">
+                <button class="btn btn-primary">Add New Element</button>
+                            <div class="divider"></div><br>
+                
+                <ol class="breadcrumb"> 
+                <div class="comment-row-item-content">
+                    <button type="button" class="comment-row-item-action edit">
+                        <i class="font-icon font-icon-pencil"></i>
+                    </button>
+                    <button type="button" class="comment-row-item-action del">
+                        <i class="font-icon font-icon-trash"></i>
+                    </button>
+                    <div onclick="search_manual('If the Borrower requests for pre-payment during the Lock-in period')">
+                    <h4>Element 1 </h4>
+                    <p>If the Borrower requests for pre-payment during the Lock-in period</p>
+                    </div>
+                
+                </div>
+                </ol>
+                
+                <a href=""><ol class="breadcrumb"> 
+					<div class="comment-row-item-content">
+                         <button type="button" class="comment-row-item-action edit">
+                            <i class="font-icon font-icon-pencil"></i>
+                        </button>
+                        <button type="button" class="comment-row-item-action del">
+                            <i class="font-icon font-icon-trash"></i>
+                        </button>
+                        <h3>Element 2 </h3>
+                        <p>Contents of Element 2</p>
+                       
+                    </div>
+				</ol></a>
+            </div>
+        </section>
+    </div>
+    
+</div>
+{% endblock content %}  
+
+{% block jsfiles %} 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.worker.js"></script>
+
+
+<script>
+
+function search_manual(td_text) {
+//    document.getElementById("findInput").value = text_manual ;
+PDFViewerApplication.findBar.findField.value = td_text;
+}
+
+</script>
+
+
+
+{% endblock %}
+
+    
+

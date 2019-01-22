@@ -1,0 +1,58 @@
+
+{% extends 'generic.html' %}
+
+
+{% block content %}
+	<!--Add File Button-->
+<div class="box-typical box-typical-padding">
+<div class="row">
+	<div class="col-md-6">
+	<div class="box-typical-upload-in">
+	<div class="drop-zone" style="width:70%">
+	<i class="font-icon font-icon-cloud-upload-2"></i>
+		<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Upload</button>
+		</form>
+	</div><!--.drop-zone-->
+	</div>
+	</div>
+</div>
+</div>
+
+
+	<br><br>
+
+<table class="table table-stripped table-bordered table-hover">
+<thead>
+    <tr>
+    <th>Files</th>
+    <th>Folder</th>
+    <th>Date Created</th>
+    <th></th>
+    </tr>
+</thead>
+<tbody>
+{% for item in data %}
+<tr>
+    <td>{{ item.id }}</td>
+    <td>{{ item.file }}</td>
+    <td>{{ item.uploaded_at }}</td>
+    <td width="20%">
+        <div class="dropdown dropdown-status">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-cog"></i></button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'docviews' %}">Open</a>
+                <a class="dropdown-item" class="dropdown-toggle" data-toggle="dropdown" href="#">Move to</a>
+                <a class="dropdown-item" href="#">Delete</a>
+                <a class="dropdown-item" href="#">Rename</a>
+            </div>
+        </div>
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>   
+{% endblock %}

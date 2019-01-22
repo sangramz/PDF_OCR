@@ -1,0 +1,62 @@
+{% extends 'generic.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-8">
+       
+    <object data="http://127.0.0.1:8000/static/app_main/web/viewer.html?file=http://127.0.0.1:8000/static/app_main/document1.pdf" style="width:100%; height:550px;" frameborder="0"></object>
+           
+    </div>
+
+    <div class="col-sm-4">
+    
+        <section class="card card-blue-fill">
+            <div class="card-block">
+                <button class="btn btn-primary">Add New Element</button>
+                            <div class="divider"></div><br>
+                
+                <ol class="breadcrumb"> 
+                <div class="comment-row-item-content">
+                    <button type="button" class="comment-row-item-action edit">
+                        <i class="font-icon font-icon-pencil"></i>
+                    </button>
+                    <button type="button" class="comment-row-item-action del">
+                        <i class="font-icon font-icon-trash"></i>
+                    </button>
+                    <h4>Element 1 </h4>
+                  
+                    <p onclick="searchpdf()">If the Borrower requests for pre-payment during the Lock-in period</p>
+                
+                </div>
+                </ol>
+                
+                <a href=""><ol class="breadcrumb"> 
+					<div class="comment-row-item-content">
+                         <button type="button" class="comment-row-item-action edit">
+                            <i class="font-icon font-icon-pencil"></i>
+                        </button>
+                        <button type="button" class="comment-row-item-action del">
+                            <i class="font-icon font-icon-trash"></i>
+                        </button>
+                        <h3>Element 2 </h3>
+                        <p>Contents of Element 2</p>
+                       
+                    </div>
+				</ol></a>
+            </div>
+        </section>
+    </div>
+
+</div>
+    
+{% endblock %}
+
+{% block jsfiles %}
+<script>
+    function searchpdf() {
+        document.getElementById("#findInput").value = "If the Borrower requests for pre-payment during the Lock-in period";
+    } // Take Search Text in Arguments 
+</script>
+   
+{% endblock %}

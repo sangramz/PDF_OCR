@@ -1,0 +1,67 @@
+{% extends 'generic.html' %}
+
+{% load static %}
+
+{% block content %}
+	<!--Add File Button-->
+<div class="box-typical box-typical-padding">
+<div class="row">
+	<div class="col-md-8">
+	<div class="box-typical-upload-in">
+	<div class="drop-zone" style="width:70%; padding:4%">
+	<i class="font-icon font-icon-cloud-upload-2"></i>
+		<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<div class="row">
+			<div class="col-sm-12">
+				{{ form.as_p }}
+			</div>
+			<div class="col-sm-12">
+				<button type="submit" class="form-control"><i class="fa fa-upload"></i> Upload</button>
+			</div>
+		</div>
+		
+		</form>
+	</div><!--.drop-zone-->
+	</div>
+	</div>
+</div>
+</div>
+
+
+    
+    
+
+	<!--Stats-->
+	<br><br>
+	
+	<div class="row">
+		<div class="col-sm-5">
+		<article class="statistic-box purple">
+			<div>
+				<div class="number">--N.A.--</div>
+				<div class="caption"><div>Uploaded Files</div></div>
+				<div class="percent">
+					
+				</div>
+			</div>
+		</article>
+	</div>
+	<div class="col-sm-5">
+		<article class="statistic-box yellow">
+			<div>
+				<div class="number">--N.A.--</div>
+				<div class="caption"><div>Shared Files</div></div>
+				<div class="percent">
+					
+				</div>
+			</div>
+		</article>
+	</div>
+	</div>
+	
+{% endblock %}
+
+{% block jsfiles %}
+
+{% endblock %}
